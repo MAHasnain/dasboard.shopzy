@@ -3,7 +3,7 @@ const SUPABASE_ANON_KEY = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const getAllUsers = async () => {
+export const getAllUsers = async () => {
     const { data: { users }, error } = await supabaseClient.auth.admin.listUsers({
         page: 1,
         perPage: 1000
@@ -17,7 +17,7 @@ const getAllUsers = async () => {
     return users;
 }
 
-const createNewUser = async (userData) => {
+export const createNewUser = async (userData) => {
     const { data, error } = await supabaseClient.auth.admin.createUser(
         userData
         //     {
@@ -36,7 +36,7 @@ const createNewUser = async (userData) => {
 
 }
 
-const deleteAUser = async (userId) => {
+export const deleteAUser = async (userId) => {
     const { data, error } = await supabaseClient.auth.admin.deleteUser(userId);
 
     if (error) {
@@ -47,7 +47,7 @@ const deleteAUser = async (userId) => {
     return data;
 }
 
-const updateAUser = async (userId, userData) => {
+export const updateAUser = async (userId, userData) => {
     const { data: user, error } = await supabaseClient.auth.admin.updateUserById(
         userId, userData
         //   { email: 'new@email.com', password: 'new_password' }
@@ -62,7 +62,7 @@ const updateAUser = async (userId, userData) => {
 
 }
 
-const createANewUser = async (userData) => {
+export const createANewUser = async (userData) => {
     const { data, error } = await supabase.auth.admin.createUser(
         userData
         //     {us

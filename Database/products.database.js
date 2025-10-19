@@ -4,7 +4,7 @@ const SUPABASE_ANON_KEY = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
-const getAllProducts = async () => {
+export const getAllProducts = async () => {
 
     const { data, error } = await supabaseClient
         .from('Products')
@@ -19,7 +19,7 @@ const getAllProducts = async () => {
     return data;
 }
 
-const getProductById = async (id) => {
+export const getProductById = async (id) => {
     const { data, error } = await supabaseClient
         .from("Products")
         .select()
@@ -34,7 +34,7 @@ const getProductById = async (id) => {
     return data;
 }
 
-const createProduct = async (productData) => {
+export const createProduct = async (productData) => {
 
     const { data, error } = await supabaseClient
         .from('Products')
@@ -49,7 +49,7 @@ const createProduct = async (productData) => {
     return data;
 
 }
-const updateProduct = async (productId, productData) => {
+export const updateProduct = async (productId, productData) => {
 
     const { data, error } = await supabaseClient
         .from('Products')
@@ -64,7 +64,7 @@ const updateProduct = async (productId, productData) => {
     // console.log(data);
     return data;
 }
-const removeProduct = async (productId) => {
+export const removeProduct = async (productId) => {
 
     const { data, error } = await supabaseClient
         .from('Products')

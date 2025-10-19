@@ -3,7 +3,7 @@ const SUPABASE_ANON_KEY = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const getAllOrders = async () => {
+export const getAllOrders = async () => {
 
     const { data, error } = await supabaseClient
         .from('Orders')
@@ -18,7 +18,7 @@ const getAllOrders = async () => {
 
 }
 
-const editOrder = async (orderId, orderData) => {
+export const editOrder = async (orderId, orderData) => {
     const { data, error } = await supabaseClient
         .from('Orders')
         .update(orderData)
@@ -34,7 +34,7 @@ const editOrder = async (orderId, orderData) => {
 
 }
 
-const deleteOrder = async (orderId) => {
+export const deleteOrder = async (orderId) => {
     const { data, error } = await supabaseClient
         .from('Orders')
         .delete()

@@ -5,7 +5,7 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
 
-const getAllCategories = async () => {
+export const getAllCategories = async () => {
 
     const { data, error } = await supabaseClient
         .from('Categories')
@@ -20,7 +20,7 @@ const getAllCategories = async () => {
     return data;
 }
 
-const getCategoryById = async (categoryId) => {
+export const getCategoryById = async (categoryId) => {
     const { data, error } = await supabaseClient
         .from("Categories")
         .select()
@@ -35,7 +35,7 @@ const getCategoryById = async (categoryId) => {
     return data;
 }
 
-const createCategory = async (categoryData) => {
+export const createCategory = async (categoryData) => {
 
     const { data, error } = await supabaseClient
         .from('Categories')
@@ -50,7 +50,7 @@ const createCategory = async (categoryData) => {
     return data;
 
 }
-const updateProduct = async (categoryId, categoryData) => {
+export const updateProduct = async (categoryId, categoryData) => {
 
     const { data, error } = await supabaseClient
         .from('Categories')
@@ -65,7 +65,7 @@ const updateProduct = async (categoryId, categoryData) => {
     console.log(data);
     return data;
 }
-const removeCategory = async (categoryId) => {
+export const removeCategory = async (categoryId) => {
 
     const { data, error } = await supabaseClient
         .from('Categories')
