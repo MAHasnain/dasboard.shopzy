@@ -65,3 +65,12 @@ const getUserSession = async () => {
     return data;
 
 }
+
+const getLoggedInUser = async () => {
+    
+    const { data: { user } } = await supabase.auth.getUser()
+
+    console.log(user);
+    return user;
+
+}
