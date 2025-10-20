@@ -50,7 +50,7 @@ export const createCategory = async (categoryData) => {
     return data;
 
 }
-export const updateProduct = async (categoryId, categoryData) => {
+export const updateCategory = async (categoryId, categoryData) => {
 
     const { data, error } = await supabaseClient
         .from('Categories')
