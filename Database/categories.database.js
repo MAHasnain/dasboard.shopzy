@@ -40,7 +40,7 @@ export const createCategory = async (categoryData) => {
     const { data, error } = await supabaseClient
         .from('Categories')
         .insert(categoryData)
-        .select()
+        .select("*")
 
     if (error) {
         console.error(error);

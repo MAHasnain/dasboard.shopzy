@@ -2,7 +2,7 @@
 import { createCategory } from "../Database/allMethods.js";
 
 const categoryCreationForm = document.querySelector("#categoryCreationForm");
-const titleInp = document.querySelector("#title-Inp");
+const nameInp = document.querySelector("#name-Inp");
 
 categoryCreationForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ categoryCreationForm.addEventListener("submit", async (e) => {
 
         const newCategory = await createCategory(
             {
-                title: titleInp.value
+                name: nameInp.value
             }
         );
 
