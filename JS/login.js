@@ -13,8 +13,11 @@ loginBtn.addEventListener("click", async (e) => {
             email: loginEmailInp.value,
             password: loginPassInp.value,
         })
+        console.log(signedInUser.session);
 
-        console.log(signedInUser);
+        if (signedInUser.session) {
+            window.location.href = `/index.html`;
+        }
     
     } catch (error) {
         console.error(error)

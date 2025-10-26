@@ -23,8 +23,12 @@ registerBtn.addEventListener("click", async (e) => {
                 }
             }
         );
-
         console.log(newUser);
+
+        if (newUser.user) {
+            window.location.href = `../HTML/auth/login.html`;
+        }
+
         return newUser;
 
     } catch (error) {
