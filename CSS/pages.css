@@ -1,0 +1,24 @@
+/* Dashboard Page */
+.dashboard-page .cards {
+  margin-top: 2rem;
+}
+
+/* Categories Page */
+.categories-page .table {
+  margin-top: 1.5rem;
+}
+
+/* Products Page */
+.products-page .table {
+  margin-top: 1.5rem;
+}
+
+/* Users Page */
+.users-page .table {
+  margin-top: 1.5rem;
+}
+
+/* Orders Page */
+.orders-page .table {
+  margin-top: 1.5rem;
+}
