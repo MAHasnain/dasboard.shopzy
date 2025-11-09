@@ -17,35 +17,48 @@
     </header>
 
     <section>
-        <div class="sidebar"></div>
-        <div class="main-section">
-            <h3>Dashboard</h3>
+        <div class="dashboard-container flex">
+            <aside class="sidebar">
+                <div class="logo">Shopzy Admin</div>
+                <nav class="sidebar-menu flex">
+                    <a href="/index.html" class="active">Dashboard</a>
+                    <a href="./HTML/category_pages/allcategories.html">Categories</a>
+                    <a href="./HTML/product_pages/allProducts.html">Products</a>
+                    <a href="./HTML/user_pages/allUsers.html">Users</a>
+                    <a href="./HTML/order_pages/allOrders.html">Orders</a>
+                </nav>
+            </aside>
+            <div class="main-section">
+                <h3>Dashboard</h3>
 
-            <div class="parent">
-                <div class="categories-container">
-                    <div class="categories">
+                <div class="sections_parent ">
+                    <div class="categories-container child-section">
+                        <h3 class="section-title">Categories</h3>
+                        <div class="categories">
+                        </div>
+                        <div class="see-more_link"><a href="./HTML/category_pages/allcategories.html">see more...</a></div>
+                    </div>
+                    <div class="products-container child-section">
+                        <h3 class="section-title">Products</h3>
+                        <div class="products">
 
+                        </div>
+                        <div class="see-more_link"><a href="./HTML/product_pages/allProducts.html">see more...</a></div>
+                    </div>
+                    <div class="orders-container child-section">
+                        <h3 class="section-title">Orders</h3>
+                        <div class="orders "></div>
+                        <div class="see-more_link"><a href="./HTML/order_pages/allOrders.html">see more...</a></div>
+                    </div>
+                    <div class="users-container child-section">
+                        <h3 class="section-title">Users</h3>
+                        <div class="users "></div>
+                        <div class="see-more_link"><a href="./HTML/user_pages/allUsers.html">see more...</a></div>
                     </div>
                 </div>
-                <div class="products-container">
-                    <div class="products">
 
-                    </div>
-                </div>
-                <div class="orders-container">
-                    <div class="orders">
-
-                    </div>
-                </div>
-                <div class="users-container">
-                    <div class="users">
-
-                    </div>
-                </div>
             </div>
-
         </div>
-
     </section>
 
     <footer>

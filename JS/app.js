@@ -16,8 +16,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (userSession.session) {
 
             // Get All categories
-            const allCategories = await getAllCategories();
+            let allCategories = await getAllCategories();
             // console.log(allCategories);
+            allCategories.length === 0
+                ?
+                categories_section.innerHTML = `<p>No categories.</p>`
+                :
+            allCategories = allCategories.slice(0, 4)
             allCategories.map(category => {
                 categories_section.innerHTML += `
                 <div class="category" data-id="${category.id}">
@@ -29,23 +34,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             })
 
             // Get All products
-            const allProducts = await getAllProducts();
+            let allProducts = await getAllProducts();
             // console.log(allProducts);
+            allProducts.length === 0
+                ?
+                products_section.innerHTML = `<p>No products.</p>`
+                :
+            allProducts = allProducts.slice(0, 4)
             allProducts.map(product => {
                 products_section.innerHTML += `
-            <div class="product" id="product_card" data-id="${product.id}" data-cat_id="${product.category_id}">
-                 <div class="product-card" >
-                     <img src="${product.image_url}" width=200px alt="">
-                     <div class="product-price">
-                         <h4>Rs. ${product.price}</h4>
-                     </div>
-                     <div class="product-name">
-                         <p>${product.title}</p>
-                     </div>
-                     <div class="product-description">
-                         <p>${product.description}</p>
-                     </div>
-                     <button id="cart_btn">Add to Cart</button>
+            <div class="product-card flex" id="product" data-id="${product.id}" data-cat_id="${product.category_id}"> 
+                 <img class="product-image" src="${product.image_url}" width=80px alt="">
+                    <div class="product-info">
+                        <p class="product-name">${product.title}</p>
+                        <p class="product-title">Rs. ${product.price}</p>
+                    </div>
+                 <div class="product-stock">
+                     <p><span>stock </span>${product.stock}</p>
                  </div>
              </div>`
             })
@@ -62,8 +67,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             })
 
             // Get All orders
-            const allOrders = await getAllOrders();
+            let allOrders = await getAllOrders();
             // console.log(allOrders);
+            allOrders.length === 0
+                ?
+                orders_section.innerHTML = `<p>No upcoming orders.</p>`
+                :
+                allOrders = allOrders.slice(0, 4)
             allOrders.map(order => {
                 orders_section.innerHTML += `
             <div class="order" data-order_id="${order.id}"></div>`
@@ -73,11 +83,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             })
 
             // Get All users
-            const allUsers = await getAllUsers();
+            let allUsers = await getAllUsers();
             // console.log(allUsers);
+            allUsers.length === 0
+                ?
+                users_section.innerHTML = `<p>No user.</p>`
+                :
+            allUsers = allUsers.slice(0, 4)
             allUsers.map(user => {
                 users_section.innerHTML += `
-            <div data-id="${user.id}">
+            <div class="user-data " data-id="${user.id}"><i class="fa-solid fa-circle-user"></i>
                 <p class="name">${user.user_metadata.first_name}</p>
                 <p class="email">${user.email}</p>
             </div>`
