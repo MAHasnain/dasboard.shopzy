@@ -1,5 +1,5 @@
 // console.log(supabase);
-import { createNewUser } from "../Database/auth.database.js";
+import { createNewUser , getUserSession} from "../Database/allMethods.js";
 
 const regNameInp = document.querySelector("#regNameInp")
 const regAgeInp = document.querySelector("#regAgeInp")
@@ -7,6 +7,16 @@ const regEmailInp = document.querySelector("#regEmailInp")
 const regPasswordInp = document.querySelector("#regPasswordInp")
 const registerBtn = document.querySelector("#register-btn")
 
+const sessionCheck = async () => {
+    const userSession = await getUserSession();
+    console.log(userSession);
+
+    if (userSession.session) {
+        window.location.href = `/`;
+    }
+}
+
+sessionCheck();
 registerBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     try {

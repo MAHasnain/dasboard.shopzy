@@ -1,10 +1,20 @@
-import { signInUser } from "../Database/auth.database.js";
+import { getUserSession, signInUser } from "../Database/auth.database.js";
 // console.log(supabase);
 
 const loginEmailInp = document.querySelector("#loginEmailInp");
 const loginPassInp = document.querySelector("#loginPassInp");
 const loginBtn = document.querySelector("#loginBtn");
 
+const sessionCheck = async () => {
+    const userSession = await getUserSession();
+    console.log(userSession);
+
+    if (userSession.session) {
+        window.location.href = `/`;
+    }
+}
+
+sessionCheck();
 loginBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
@@ -18,7 +28,7 @@ loginBtn.addEventListener("click", async (e) => {
         if (signedInUser.session) {
             window.location.href = `/index.html`;
         }
-    
+
     } catch (error) {
         console.error(error)
         return error;

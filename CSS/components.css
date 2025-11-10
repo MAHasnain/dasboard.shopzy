@@ -138,11 +138,12 @@
   text-transform: lowercase;
 }
 
-.categories{
+.categories {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .category {
   padding-left: 20px;
   border-bottom: 1px solid #eee;
@@ -150,7 +151,7 @@
 
 .category-name {
   font-weight: 500;
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .see-more_link {
@@ -159,4 +160,122 @@
 
 .see-more_link a {
   text-decoration: none;
+}
+
+.auth-form-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-header h2 {
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.auth-header p {
+  color: #6c757d;
+  font-size: 15px;
+}
+
+.auth-form {
+  /* Form k styles yahan */
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-link p {
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-link a {
+  color: #3498db;
+  font-weight: 500;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* COMPONENT: Form Groups (Labels & Inputs) */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.action-btn{
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Blue button (Primary) */
+.btn-primary {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* Full-width button */
+.btn-block {
+  display: block;
+  width: 100%;
 }

@@ -17,31 +17,41 @@
         <nav></nav>
     </header>
 
-    <section class="container register_container">
-        <div class="heading">
+    <section class="container auth-container">
+        <div class="heading auth-header">
             <h3>Step Into Shopzy</h3>
             <p>Create your account and unlock the vibe.</p>
         </div>
-        <div class="register-form">
-            <form action="">
+        <div class="auth-form-container">
+            <form action="" class="auth-form">
                 <div class="form-inputs">
-                    <label for="name" class="nameLabel">Name</label>
-                    <input type="text" name="name" id="regNameInp">
-                    <label for="age" class="ageLabel">Age</label>
-                    <input type="number" name="age" id="regAgeInp">
-                    <label for="email" class="emailLabel">Email</label>
-                    <input type="email" name="Email" id="regEmailInp" required>
+                    <div class="form-group">
+                        <label for="name" class="nameLabel">Name</label>
+                        <input type="text" name="name" id="regNameInp" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="ageLabel">Age</label>
+                        <input type="number" name="age" id="regAgeInp" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="emailLabel">Email</label>
+                        <input type="email" name="Email" id="regEmailInp" class="form-control" required>
+                    </div>
                     <!-- <label for="role" class="roleLabel">Role</label>
                     <input type="text" value="USER" name="role" id="regRoleInp" readonly> -->
-                    <label for="password" class="passwordLabel">Password</label>
-                    <input type="password" name="password" id="regPasswordInp" required>
+                    <div class="form-group">
+                        <label for="password" class="passwordLabel">Password</label>
+                        <input type="password" name="password" id="regPasswordInp" class="form-control" required>
+                    </div>
                 </div>
-                <button type="submit" id="register-btn">Register</button>
+                <div class="action-btn">
+                    <button type="submit" class="btn" id="register-btn">Register</button>
+                </div>
             </form>
         </div>
         <div class="">
             <p>Already have an account?
-                <a href="./login.html">Login</a>
+                <a href="../auth/login.html">Login</a>
             </p>
         </div>
     </section>
