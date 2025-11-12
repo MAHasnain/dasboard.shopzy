@@ -5,6 +5,11 @@ const products_section = document.querySelector(".products");
 const orders_section = document.querySelector(".orders");
 const users_section = document.querySelector(".users");
 
+const catgSeeMoreLink = document.querySelector(".catgr_s-m_link");
+const prdcSeeMoreLink = document.querySelector(".prdc_s-m_link");
+const ordrSeeMoreLink = document.querySelector(".ordr_s-m_link");
+const usersSeeMoreLink = document.querySelector(".users_s-m_link");
+
 document.addEventListener("DOMContentLoaded", async () => {
 
     try {
@@ -18,17 +23,27 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Get All categories
             let allCategories = await getAllCategories();
             // console.log(allCategories);
-            allCategories.length === 0
-                ?
+            allCategories.length === 0 ?
                 categories_section.innerHTML = `<p>No categories.</p>`
                 :
-            allCategories = allCategories.slice(0, 4)
+                allCategories.length < 4
+                    ?
+                    allCategories.map(category => {
+                        categories_section.innerHTML += `
+                <div class="category" data-id="${category.id}">
+                        <p class="category-name">${category.name}</p>
+                    </div>`
+                    })
+                    :
+                    allCategories = allCategories.slice(0, 4)
             allCategories.map(category => {
                 categories_section.innerHTML += `
                 <div class="category" data-id="${category.id}">
                         <p class="category-name">${category.name}</p>
                     </div>`
-            })
+            });
+            catgSeeMoreLink.innerHTML = `<a href="./HTML/category_pages/allcategories.html">see more...</a>`;
+
             categories_section.addEventListener("click", () => {
                 window.location.href = `../HTML/category_pages/allcategories.html`
             })
@@ -40,7 +55,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ?
                 products_section.innerHTML = `<p>No products.</p>`
                 :
-            allProducts = allProducts.slice(0, 4)
+                allProducts.length < 4
+                    ?
+                    allProducts.map(product => {
+                        products_section.innerHTML += `
+            <div class="product-card flex" id="product" data-id="${product.id}" data-cat_id="${product.category_id}"> 
+                 <img class="product-image" src="${product.image_url}" width=80px alt="">
+                    <div class="product-info">
+                        <p class="product-name">${product.title}</p>
+                        <p class="product-title">Rs. ${product.price}</p>
+                    </div>
+                 <div class="product-stock">
+                     <p><span>stock </span>${product.stock}</p>
+                 </div>
+             </div>`
+                    })
+                    :
+                    allProducts = allProducts.slice(0, 4)
             allProducts.map(product => {
                 products_section.innerHTML += `
             <div class="product-card flex" id="product" data-id="${product.id}" data-cat_id="${product.category_id}"> 
@@ -52,8 +83,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                  <div class="product-stock">
                      <p><span>stock </span>${product.stock}</p>
                  </div>
-             </div>`
-            })
+             </div>`})
+            prdcSeeMoreLink.innerHTML = `<a href="./HTML/product_pages/allProducts.html">see more...</a>`;
 
             // const productCards = document.querySelectorAll("#product_card");
             // productCards.forEach(productCard => {
@@ -73,11 +104,20 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ?
                 orders_section.innerHTML = `<p>No upcoming orders.</p>`
                 :
-                allOrders = allOrders.slice(0, 4)
+                allOrders.length < 4
+                    ?
+                    allOrders.map(order => {
+                        orders_section.innerHTML += `
+            <div class="order" data-order_id="${order.id}"><p>${order.product_name}</p></div>`
+                    })
+                    :
+                    allOrders = allOrders.slice(0, 4)
             allOrders.map(order => {
                 orders_section.innerHTML += `
-            <div class="order" data-order_id="${order.id}"></div>`
+            <div class="order" data-order_id="${order.id}"><p>${order.product_name}</p></div>`
             })
+            ordrSeeMoreLink.innerHTML = `<a href="./HTML/order_pages/allOrders.html">see more...</a>`
+
             orders_section.addEventListener("click", () => {
                 window.location.href = `../HTML/order_pages/allOrders.html`
             })
@@ -89,14 +129,26 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ?
                 users_section.innerHTML = `<p>No user.</p>`
                 :
-            allUsers = allUsers.slice(0, 4)
+                allUsers.length < 4
+                    ?
+                    allUsers.map(user => {
+                        users_section.innerHTML += `
+            <div class="user-data " data-id="${user.id}"><i class="fa-solid fa-circle-user"></i>
+                <p class="name">${user.user_metadata.first_name}</p>
+                <p class="email">${user.email}</p>
+            </div>`
+                    })
+                    :
+                    allUsers = allUsers.slice(0, 4);
             allUsers.map(user => {
                 users_section.innerHTML += `
             <div class="user-data " data-id="${user.id}"><i class="fa-solid fa-circle-user"></i>
                 <p class="name">${user.user_metadata.first_name}</p>
                 <p class="email">${user.email}</p>
             </div>`
-            })
+            });
+            usersSeeMoreLink.innerHTML = `<a href="./HTML/user_pages/allUsers.html">see more...</a>`;
+
             users_section.addEventListener("click", () => {
                 window.location.href = `../HTML/user_pages/allUsers.html`;
             })
